@@ -4,12 +4,12 @@ public class Card {
     private int face;
 
     /**
-     * @param suit The initial suit of the new card object
-     * @param face The initial face of the new card object
+     * @param suit The initial suit of the card object
+     * @param face The initial face of the card object
      */
     public Card(Suit suit, int face) {
         this.suit = suit;
-        this.face = face;
+        setFace(face);
     }
 
     /**
@@ -26,4 +26,14 @@ public class Card {
         return face;
     }
 
+    /**
+     * @param face The initial face of the card object
+     */
+    private void setFace(int face) {
+        if (face > 10 || face < 2) {
+            throw new IllegalArgumentException("Face value must be in the interval [2, 10], was: " + face);
+        }
+
+        this.face = face;
+    }
 }
