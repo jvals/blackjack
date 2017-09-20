@@ -12,9 +12,9 @@ class CardTest {
            new Card(Suit.CLUBS, 15);
         });
 
-        // Test that we can't have a face smaller than 2
+        // Test that we can't have a face smaller than 1
         assertThrows(IllegalArgumentException.class, () -> {
-            new Card(Suit.DIAMONDS, 1);
+            new Card(Suit.DIAMONDS, 0);
         });
 
         // Test that we can't have a negative face
