@@ -8,19 +8,13 @@ class CardTest {
     @Test
     public void testFace() {
         // Test that we can't have a face greater than 13
-        assertThrows(IllegalArgumentException.class, () -> {
-           new Card(Suit.CLUBS, 15);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.CLUBS, 15));
 
         // Test that we can't have a face smaller than 1
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Card(Suit.DIAMONDS, 0);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.DIAMONDS, 0));
 
         // Test that we can't have a negative face
-        assertThrows(IllegalArgumentException.class, () -> {
-            new Card(Suit.SPADES, -1);
-        });
+        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.SPADES, -1));
 
         // Test that we can set and get a face
         Card nineOfHearts = new Card(Suit.HEARTS, 9);
