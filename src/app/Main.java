@@ -1,15 +1,33 @@
 package app;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Main {
 
     public static void main(String[] args) {
         // Read from commandline args
+        Deck deck = parseArgs(args);
+        // Create a new game, with the array of cards as input
+        // Run the game
+    }
+
+    /**
+     * @param args The command line arguments
+     * @return An array of cards
+     */
+    private static Deck parseArgs(String[] args) {
+        Deck deck = null;
         switch (args.length) {
             case 0:
                 // Create new shuffled deck of cards
+                deck = new Deck();
                 break;
             case 1:
-                // Read from specified file
+                // Load deck from input
+                String rawDeck = readFile(args[0]);
+                deck = new Deck(rawDeck);
                 break;
             default:
                 // Print usage
@@ -20,7 +38,23 @@ public class Main {
                 System.exit(1);
                 break;
         }
-        // Create a new game, with the array of cards as input
-        // Run the game
+        return deck;
+    }
+
+    /**
+     * @param fileName The name of the input file
+     * @return A string of comma separated values representing a deck of cards (A9, KC, 8D, ...)
+     */
+    private static String readFile(String fileName) {
+        String rawDeck = "";
+        // Read from specified file
+        try (BufferedReader buffer = new BufferedReader(new FileReader(fileName))) {
+            rawDeck = buffer.readLine();
+            buffer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return rawDeck;
     }
 }
