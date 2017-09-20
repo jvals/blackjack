@@ -3,9 +3,9 @@ package app;
 import java.util.ArrayList;
 
 public class Player implements Comparable<Player> {
-    private String name;
+    private final String name;
     private int score;
-    private ArrayList<Card> hand;
+    private final ArrayList<Card> hand;
 
     public Player(String name) {
         this.name = name;

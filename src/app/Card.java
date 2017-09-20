@@ -2,7 +2,7 @@ package app;
 
 public class Card {
 
-    private Suit suit;
+    private final Suit suit;
     private int face;
 
     /**
