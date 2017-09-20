@@ -1,3 +1,5 @@
+package app;
+
 public class Card {
 
     private Suit suit;
