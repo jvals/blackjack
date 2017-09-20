@@ -32,8 +32,8 @@ public class Card {
      * @param face The initial face of the card object
      */
     private void setFace(int face) {
-        if (face > 10 || face < 2) {
-            throw new IllegalArgumentException("Face value must be in the interval [2, 10], was: " + face);
+        if (face > 13 || face < 1) {
+            throw new IllegalArgumentException("Face value must be in the interval [1, 13], was: " + face);
         }
 
         this.face = face;
