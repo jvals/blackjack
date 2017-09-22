@@ -6,6 +6,7 @@ import java.util.Collections;
 
 public class Deck {
     private Card[] deck = new Card[52];
+    private int deckPointer = 0;
 
     public Deck(String rawDeck) {
         parseRawDeck(rawDeck);
@@ -100,5 +101,13 @@ public class Deck {
             i++;
         }
 
+    }
+
+    public Card drawCard() {
+        if (deckPointer >= 51) {
+            throw new RuntimeException("Tried to draw card from empty deck");
+        }
+
+        return deck[deckPointer++];
     }
 }
