@@ -43,4 +43,27 @@ public class Card {
     public String toString() {
         return this.suit.shortName + String.valueOf(this.face);
     }
+
+    /**
+     * @param o The object we are comparing this to
+     * @return true if this is the same as the object argument; false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o) {
+            return true;
+        }
+        // null check
+        if (null == o) {
+            return false;
+        }
+        // type check
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        Card card = (Card) o;
+        // Check fields
+        return this.face == card.face && this.suit == card.suit;
+    }
 }
