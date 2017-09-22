@@ -38,8 +38,10 @@ class PlayerTest {
         Random generator = new Random();
         int first = generator.nextInt(13) + 1;
         int second = generator.nextInt(13) + 1;
-        testPlayer.drawCard(new Card(Suit.DIAMONDS, first));
-        testPlayer.drawCard(new Card(Suit.CLUBS, second));
+        testPlayer.addCard(new Card(Suit.DIAMONDS, first));
+        testPlayer.increaseScore(first);
+        testPlayer.addCard(new Card(Suit.CLUBS, second));
+        testPlayer.increaseScore(second);
         assertTrue(testPlayer.getHand().size() == 2);
         assertEquals(first + second, testPlayer.getScore());
     }
@@ -49,13 +51,16 @@ class PlayerTest {
         Player opponent = new Player("Dan");
 
         // The players draw one card each with equal value
-        opponent.drawCard(new Card(Suit.CLUBS, 5));
-        testPlayer.drawCard(new Card(Suit.SPADES, 5));
+        opponent.addCard(new Card(Suit.CLUBS, 5));
+        opponent.increaseScore(5);
+        testPlayer.addCard(new Card(Suit.SPADES, 5));
+        testPlayer.increaseScore(5);
 
         // Assert that these players are equal
         assertTrue(testPlayer.compareTo(opponent) == 0);
 
-        testPlayer.drawCard(new Card(Suit.CLUBS, 5));
+        testPlayer.addCard(new Card(Suit.CLUBS, 5));
+        testPlayer.increaseScore(5);
 
         // Assert that Joe now has a higher score
         assertTrue(testPlayer.compareTo(opponent) > 0);
