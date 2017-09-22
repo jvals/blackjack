@@ -41,12 +41,24 @@ public class Player implements Comparable<Player> {
         return Integer.compare(this.score, otherPlayer.score);
     }
 
-
     /**
      * @return The cards this player are currently holding
      */
     public ArrayList<Card> getHand() {
         return hand;
+    }
+
+    /**
+     * Print the hand of this player
+     */
+    public void printHand() {
+        StringBuilder output = new StringBuilder();
+        for (Card card : hand) {
+            output.append(card).append(", ");
+        }
+        // Remove the last space and comma from the string
+        output.delete(output.length() - 2, output.length() - 1);
+        System.out.println(output);
     }
 
     /**
