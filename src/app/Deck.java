@@ -56,17 +56,15 @@ public class Deck {
             cardString = cardString.trim();
 
             // Determine number of digits for face
+            int cardLength = cardString.length();
             String first, second;
-            if (cardString.length() == 2) {
-                first = cardString.substring(0, 1);
-                second = cardString.substring(1, 2);
-            } else if (cardString.length() == 3) {
-                first = cardString.substring(0, 2);
-                second = cardString.substring(2, 3);
+            if (cardLength == 2 || cardLength == 3) {
+                // The suit is always the first letter
+                second = cardString.substring(cardLength - 1);
+                first = cardString.substring(0, cardLength - 1);
             } else {
                 throw new IllegalArgumentException("The input contained a corrupt element: " + cardString);
             }
-
 
             // Determine face
             int newFace = 0;
