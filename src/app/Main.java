@@ -7,10 +7,34 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
+        // TODO: deck should be an arraylist so we avoid deckpointer. maybe use a queue or dequeue
+        // TODO: game.run needs refactoring, everything needs testing
+        // TODO: consider removing comparator usage
+        // TODO: use maven and improve readme
+        // TODO: move some tests from playertest to gametest (the ones that used the old addCard)
+        // TODO: fix all warnings
+        // TODO: change parsing to work with the actual input style
+        // TODO: Card class face output need to include ACE, KING, QUEEN and JACK
+        // TODO: Card face values should be enums
+
         // Read from commandline args
         Deck deck = parseArgs(args);
+
+        // Create player
+        Player sam = new Player("Sam");
+
+        // Create dealer
+        Player dealer = new Player("Dealer");
+
         // Create a new game, with the array of cards as input
+        Game game = new Game(deck, sam, dealer);
+
         // Run the game
+        game.run();
+
+        // Print results
+        game.printResults();
+
     }
 
     /**
