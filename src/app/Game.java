@@ -110,7 +110,7 @@ public class Game {
 
     public void printResults() {
         // Print the name of the winner
-        System.out.println(this.winner.getName());
+        System.out.println(this.getWinner().getName());
 
         // Print the players hand
         System.out.print(player.getName() + ": ");
