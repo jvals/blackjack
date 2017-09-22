@@ -18,10 +18,11 @@ class DeckTest {
 
     @Test
     public void testLoadDeck() {
-        String rawDeck = "9D, 5H, KC, 10D, QC, AC, 2C, KH, 6H, JS, 7H, QD, 5C," +
-                " 4C, JH, 8C, 7S, 6S, AS, 8H, 4D, QS, 9H, KD, 10S, 7C," +
-                " 5D, JD, 9C, 4H, JC, KS, 8D, 3D, QH, 2S, AD, 9S, 10C," +
-                " 3C, 4S, 8S, 7D, 3S, 3H, AH, 6C, 2D, 6D, 2H, 5S, 10H";
+        String rawDeck =
+                "D9, H5, CK, D10, CQ, CA, C2, HK, H6, SJ, H7, DQ, C5, " +
+                "C4, HJ, C8, S7, S6, SA, H8, D4, SQ, H9, DK, S10, C7, " +
+                "D5, DJ, C9, H4, CJ, SK, D8, D3, HQ, S2, DA, S9, C10, " +
+                "C3, S4, S8, D7, S3, H3, HA, C6, D2, D6, H2, S5, H10";
         Deck deck = new Deck(rawDeck);
         assertNotNull(deck.getDeck());
         assertEquals(52, deck.getDeck().length);
