@@ -60,38 +60,38 @@ public class Deck {
             String first, second;
             if (cardLength == 2 || cardLength == 3) {
                 // The suit is always the first letter
-                second = cardString.substring(cardLength - 1);
-                first = cardString.substring(0, cardLength - 1);
+                first = cardString.substring(0, 1);
+                second = cardString.substring(1);
             } else {
                 throw new IllegalArgumentException("The input contained a corrupt element: " + cardString);
             }
 
+            // Determine suit
+            Suit newSuit;
+            switch (first) {
+                case "D": newSuit = Suit.DIAMONDS; break;
+                case "C": newSuit = Suit.CLUBS; break;
+                case "H": newSuit = Suit.HEARTS; break;
+                case "S": newSuit = Suit.SPADES; break;
+                default: throw new IllegalArgumentException("The input contained a suit which was not recognized: "
+                        + String.valueOf(first));
+            }
+
             // Determine face
             int newFace = 0;
-            switch (first) {
+            switch (second) {
                 case "A": newFace = 1; break;
                 case "K": newFace = 13; break;
                 case "Q": newFace = 12; break;
                 case "J": newFace = 11; break;
                 default:
                     try {
-                        newFace = Integer.parseInt(first);
+                        newFace = Integer.parseInt(second);
                     } catch (NumberFormatException e) {
-                        System.err.println("The input contained a face which was not recognized: " + first);
+                        System.err.println("The input contained a face which was not recognized: " + second);
                         e.printStackTrace();
                     }
                     break;
-            }
-
-            // Determine suit
-            Suit newSuit;
-            switch (second) {
-                case "D": newSuit = Suit.DIAMONDS; break;
-                case "C": newSuit = Suit.CLUBS; break;
-                case "H": newSuit = Suit.HEARTS; break;
-                case "S": newSuit = Suit.SPADES; break;
-                default: throw new IllegalArgumentException("The input contained a suit which was not recognized: "
-                        + String.valueOf(second));
             }
 
             // Create card
