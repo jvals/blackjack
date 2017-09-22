@@ -38,4 +38,9 @@ public class Card {
 
         this.face = face;
     }
+
+    @Override
+    public String toString() {
+        return this.suit.shortName + String.valueOf(this.face);
+    }
 }
