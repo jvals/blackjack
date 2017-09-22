@@ -31,10 +31,8 @@ public class Game {
         }
         // All players draw two cards in the beginning
         drawCard(player);
-        drawCard(player);
-
-        // Dealer also draws two cards
         drawCard(dealer);
+        drawCard(player);
         drawCard(dealer);
 
         // If the player draws 21, they win
