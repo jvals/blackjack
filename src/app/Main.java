@@ -16,6 +16,7 @@ public class Main {
         // TODO: change parsing to work with the actual input style
         // TODO: Card class face output need to include ACE, KING, QUEEN and JACK
         // TODO: Card face values should be enums
+        // TODO: exit after catching errors
 
         // Read from commandline args
         Deck deck = parseArgs(args);
