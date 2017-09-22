@@ -57,7 +57,7 @@ public class Player implements Comparable<Player> {
             output.append(card).append(", ");
         }
         // Remove the last space and comma from the string
-        output.delete(output.length() - 2, output.length() - 1);
+        output.delete(output.length() - 2, output.length());
         System.out.println(output);
     }
 
