@@ -26,6 +26,9 @@ public class Game {
     }
 
     public void run() {
+        if (winner != null) {
+            throw new RuntimeException("Game already has a winner");
+        }
         // All players draw two cards in the beginning
         drawCard(player);
         drawCard(player);
