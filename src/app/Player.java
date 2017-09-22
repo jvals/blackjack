@@ -27,6 +27,10 @@ public class Player implements Comparable<Player> {
         return score;
     }
 
+    public void increaseScore(int score) {
+        this.score += score;
+    }
+
     /**
      * @param otherPlayer The player to compare this with
      * @return 0 if equal, -1 if this is less than the other, 1 if this is greater than the other
@@ -46,10 +50,11 @@ public class Player implements Comparable<Player> {
     }
 
     /**
+     * Add a card to this players hand
+     *
      * @param card The card this player draws
      */
-    public void drawCard(Card card) {
+    public void addCard(Card card) {
         this.hand.add(card);
-        this.score += card.getFace();
     }
 }
