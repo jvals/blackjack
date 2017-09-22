@@ -97,7 +97,7 @@ public class Game {
             player.increaseScore(11);
         } else {
             // Picture cards add 10 to score
-            player.increaseScore(Integer.max(card.getFace(), 10));
+            player.increaseScore(Integer.min(card.getFace(), 10));
         }
     }
 
