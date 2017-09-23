@@ -3,8 +3,6 @@ package app;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -35,13 +33,8 @@ class PlayerTest {
         assertEquals(0, testPlayer.getHand().size());
 
         // After drawing some cards, the score should be non-zero
-        Random generator = new Random();
-
-        int firstRankIndex = generator.nextInt(Rank.values().length);
-        Rank firstRank = Rank.values()[firstRankIndex];
-
-        int secondRankIndex = generator.nextInt(Rank.values().length);
-        Rank secondRank = Rank.values()[secondRankIndex];
+        Rank firstRank = Rank.TWO;
+        Rank secondRank = Rank.THREE;
 
         testPlayer.addCard(new Card(Suit.DIAMONDS, firstRank));
         testPlayer.increaseScore(firstRank.rankValue);
