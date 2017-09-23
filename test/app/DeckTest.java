@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DeckTest {
     @Test
-    public void testNewDeck() {
+    void testNewDeck() {
         Deck deck = new Deck();
         assertEquals(52, deck.getDeck().size());
         for (int i = 0; i < 52; i++) {
@@ -17,7 +17,7 @@ class DeckTest {
     }
 
     @Test
-    public void testLoadDeck() {
+    void testLoadDeck() {
         String rawDeck =
                 "D9, H5, CK, D10, CQ, CA, C2, HK, H6, SJ, H7, DQ, C5, " +
                 "C4, HJ, C8, S7, S6, SA, H8, D4, SQ, H9, DK, S10, C7, " +

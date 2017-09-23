@@ -1,12 +1,12 @@
 package app;
 
-public class Game {
-    private Deck deck;
+class Game {
+    private final Deck deck;
     private Player winner = null;
-    private Player player;
-    private Player dealer;
+    private final Player player;
+    private final Player dealer;
 
-    public Game(Deck deck, Player player, Player dealer) {
+    Game(Deck deck, Player player, Player dealer) {
         this.deck = deck;
         this.player = player;
         this.dealer = dealer;
@@ -15,7 +15,7 @@ public class Game {
     /**
      * @return The winner of the game
      */
-    public Player getWinner() {
+    Player getWinner() {
         if (winner == null) {
             throw new RuntimeException("Winner is yet to be determined");
         }
@@ -23,7 +23,7 @@ public class Game {
         return winner;
     }
 
-    public void run() {
+    void run() {
         if (winner != null) {
             throw new RuntimeException("Game already has a winner");
         }
@@ -91,7 +91,7 @@ public class Game {
         winner = dealer;
     }
 
-    public void drawCard(Player player) {
+    void drawCard(Player player) {
         Card card = deck.drawCard();
         player.addCard(card);
 
@@ -104,15 +104,15 @@ public class Game {
         }
     }
 
-    public boolean isTwentyOne(Player player) {
+    boolean isTwentyOne(Player player) {
         return (player.getScore() == 21);
     }
 
-    public boolean isBust(Player player) {
+    boolean isBust(Player player) {
         return player.getScore() > 21;
     }
 
-    public void printResults() {
+    void printResults() {
         // Print the name of the winner
         System.out.println(this.getWinner().getName());
 

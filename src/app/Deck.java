@@ -3,19 +3,19 @@ package app;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class Deck {
-    private LinkedList<Card> deck = new LinkedList<>();
+class Deck {
+    private final LinkedList<Card> deck = new LinkedList<>();
 
-    public Deck(String rawDeck) {
+    Deck(String rawDeck) {
         parseRawDeck(rawDeck);
     }
 
-    public Deck() {
+    Deck() {
         fillDeck();
         shuffleDeck();
     }
 
-    public LinkedList<Card> getDeck() {
+    LinkedList<Card> getDeck() {
         return deck;
     }
 
@@ -71,7 +71,7 @@ public class Deck {
             }
 
             // Determine rank
-            Rank newRank = null;
+            Rank newRank;
             switch (second) {
                 case "A": newRank = Rank.ACE; break;
                 case "2": newRank = Rank.TWO; break;
@@ -99,7 +99,7 @@ public class Deck {
     /**
      * @return The next card from the top of the deck
      */
-    public Card drawCard() {
+    Card drawCard() {
         if (deck.isEmpty()) {
             throw new RuntimeException("Tried to draw card from empty deck");
         }

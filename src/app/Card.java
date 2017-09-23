@@ -1,15 +1,15 @@
 package app;
 
-public class Card {
+class Card {
 
     private final Suit suit;
-    private Rank rank;
+    private final Rank rank;
 
     /**
      * @param suit The initial suit of the card object
      * @param rank The initial rank of the card object
      */
-    public Card(Suit suit, Rank rank) {
+    Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
     }
@@ -17,14 +17,14 @@ public class Card {
     /**
      * @return The suit of this card object
      */
-    public Suit getSuit() {
+    Suit getSuit() {
         return suit;
     }
 
     /**
      * @return The rank of this card object
      */
-    public Rank getRank() {
+    Rank getRank() {
         return rank;
     }
 
