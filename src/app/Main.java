@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        // TODO: deck should be an arraylist so we avoid deckpointer. maybe use a queue or dequeue
         // TODO: game.run needs refactoring, everything needs testing
         // TODO: consider removing comparator usage
         // TODO: use maven and improve readme
