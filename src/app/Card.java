@@ -3,15 +3,15 @@ package app;
 public class Card {
 
     private final Suit suit;
-    private int rank;
+    private Rank rank;
 
     /**
      * @param suit The initial suit of the card object
      * @param rank The initial rank of the card object
      */
-    public Card(Suit suit, int rank) {
+    public Card(Suit suit, Rank rank) {
         this.suit = suit;
-        setRank(rank);
+        this.rank = rank;
     }
 
     /**
@@ -24,24 +24,14 @@ public class Card {
     /**
      * @return The rank of this card object
      */
-    public int getRank() {
+    public Rank getRank() {
         return rank;
     }
 
-    /**
-     * @param rank The initial rank of the card object
-     */
-    private void setRank(int rank) {
-        if (rank > 13 || rank < 1) {
-            throw new IllegalArgumentException("Face value must be in the interval [1, 13], was: " + rank);
-        }
-
-        this.rank = rank;
-    }
 
     @Override
     public String toString() {
-        return this.suit.shortName + String.valueOf(this.rank);
+        return this.suit.shortName + this.rank.shortName;
     }
 
     /**

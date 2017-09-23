@@ -36,8 +36,8 @@ public class Deck {
     private void fillDeck() {
         int i = 0;
         for (Suit suit: Suit.values()) {
-            for (int face = 1; face <= 13; face++) {
-                deck[i] = new Card(suit, face);
+            for (Rank rank: Rank.values()) {
+                deck[i] = new Card(suit, rank);
                 i++;
             }
         }
@@ -55,7 +55,7 @@ public class Deck {
         for (String cardString: deckArray) {
             cardString = cardString.trim();
 
-            // Determine number of digits for face
+            // Determine number of digits for rank
             int cardLength = cardString.length();
             String first, second;
             if (cardLength == 2 || cardLength == 3) {
@@ -77,25 +77,28 @@ public class Deck {
                         + String.valueOf(first));
             }
 
-            // Determine face
-            int newFace = 0;
+            // Determine rank
+            Rank newRank = null;
             switch (second) {
-                case "A": newFace = 1; break;
-                case "K": newFace = 13; break;
-                case "Q": newFace = 12; break;
-                case "J": newFace = 11; break;
+                case "A": newRank = Rank.ACE; break;
+                case "2": newRank = Rank.TWO; break;
+                case "3": newRank = Rank.THREE; break;
+                case "4": newRank = Rank.FOUR; break;
+                case "5": newRank = Rank.FIVE; break;
+                case "6": newRank = Rank.SIX; break;
+                case "7": newRank = Rank.SEVEN; break;
+                case "8": newRank = Rank.EIGHT; break;
+                case "9": newRank = Rank.NINE; break;
+                case "10": newRank = Rank.TEN; break;
+                case "J": newRank = Rank.JACK; break;
+                case "Q": newRank = Rank.QUEEN; break;
+                case "K": newRank = Rank.KING; break;
                 default:
-                    try {
-                        newFace = Integer.parseInt(second);
-                    } catch (NumberFormatException e) {
-                        System.err.println("The input contained a face which was not recognized: " + second);
-                        e.printStackTrace();
-                    }
-                    break;
+                    throw new IllegalArgumentException("The input contained a rank which was not recognized: " + second);
             }
 
             // Create card
-            deck[i] = new Card(newSuit, newFace);
+            deck[i] = new Card(newSuit, newRank);
             i++;
         }
 

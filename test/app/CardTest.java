@@ -6,25 +6,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
     @Test
-    public void testFace() {
-        // Test that we can't have a face greater than 13
-        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.CLUBS, 15));
-
-        // Test that we can't have a face smaller than 1
-        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.DIAMONDS, 0));
-
-        // Test that we can't have a negative face
-        assertThrows(IllegalArgumentException.class, () -> new Card(Suit.SPADES, -1));
-
-        // Test that we can set and get a face
-        Card nineOfHearts = new Card(Suit.HEARTS, 9);
-        assertEquals(9, nineOfHearts.getRank());
+    public void testRank() {
+        // Test that we can set and get a rank
+        Card nineOfHearts = new Card(Suit.HEARTS, Rank.NINE);
+        assertEquals(9, nineOfHearts.getRank().rankValue);
     }
 
     @Test
     public void testSuit() {
         // Test that we can set and get a suit
-        Card tenOfDiamonds = new Card(Suit.DIAMONDS,10);
+        Card tenOfDiamonds = new Card(Suit.DIAMONDS,Rank.TEN);
         assertEquals(Suit.DIAMONDS, tenOfDiamonds.getSuit());
     }
 }

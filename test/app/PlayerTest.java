@@ -36,14 +36,21 @@ class PlayerTest {
 
         // After drawing some cards, the score should be non-zero
         Random generator = new Random();
-        int first = generator.nextInt(13) + 1;
-        int second = generator.nextInt(13) + 1;
-        testPlayer.addCard(new Card(Suit.DIAMONDS, first));
-        testPlayer.increaseScore(first);
-        testPlayer.addCard(new Card(Suit.CLUBS, second));
-        testPlayer.increaseScore(second);
+
+        int firstRankIndex = generator.nextInt(Rank.values().length);
+        Rank firstRank = Rank.values()[firstRankIndex];
+
+        int secondRankIndex = generator.nextInt(Rank.values().length);
+        Rank secondRank = Rank.values()[secondRankIndex];
+
+        testPlayer.addCard(new Card(Suit.DIAMONDS, firstRank));
+        testPlayer.increaseScore(firstRank.rankValue);
+
+        testPlayer.addCard(new Card(Suit.CLUBS, secondRank));
+        testPlayer.increaseScore(secondRank.rankValue);
+
         assertTrue(testPlayer.getHand().size() == 2);
-        assertEquals(first + second, testPlayer.getScore());
+        assertEquals(firstRank.rankValue + secondRank.rankValue, testPlayer.getScore());
     }
 
     @Test
@@ -51,16 +58,17 @@ class PlayerTest {
         Player opponent = new Player("Dan");
 
         // The players draw one card each with equal value
-        opponent.addCard(new Card(Suit.CLUBS, 5));
-        opponent.increaseScore(5);
-        testPlayer.addCard(new Card(Suit.SPADES, 5));
-        testPlayer.increaseScore(5);
+        Rank testRank = Rank.FIVE;
+        opponent.addCard(new Card(Suit.CLUBS, testRank));
+        opponent.increaseScore(testRank.rankValue);
+        testPlayer.addCard(new Card(Suit.SPADES, testRank));
+        testPlayer.increaseScore(testRank.rankValue);
 
         // Assert that these players are equal
         assertTrue(testPlayer.compareTo(opponent) == 0);
 
-        testPlayer.addCard(new Card(Suit.CLUBS, 5));
-        testPlayer.increaseScore(5);
+        testPlayer.addCard(new Card(Suit.CLUBS, testRank));
+        testPlayer.increaseScore(testRank.rankValue);
 
         // Assert that Joe now has a higher score
         assertTrue(testPlayer.compareTo(opponent) > 0);

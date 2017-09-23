@@ -53,8 +53,8 @@ class GameTest {
         game.drawCard(player);
         game.drawCard(player);
         game.drawCard(dealer);
-        Card[] expectedDealerHand = {new Card(Suit.CLUBS, 1), new Card(Suit.HEARTS, 12)};
-        Card[] expectedPlayerHand = {new Card(Suit.DIAMONDS, 5), new Card(Suit.HEARTS, 9)};
+        Card[] expectedDealerHand = {new Card(Suit.CLUBS, Rank.ACE), new Card(Suit.HEARTS, Rank.QUEEN)};
+        Card[] expectedPlayerHand = {new Card(Suit.DIAMONDS, Rank.FIVE), new Card(Suit.HEARTS, Rank.NINE)};
 
         // Assert that cards are drawn correctly from the deck
         assertArrayEquals(dealer.getHand().toArray(), expectedDealerHand);

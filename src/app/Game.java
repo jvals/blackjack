@@ -95,12 +95,12 @@ public class Game {
         Card card = deck.drawCard();
         player.addCard(card);
 
-        if (card.getRank() == 1) {
+        if (card.getRank() == Rank.ACE) {
             // Ace has the special value of 11 in our game
             player.increaseScore(11);
         } else {
             // Picture cards add 10 to score
-            player.increaseScore(Integer.min(card.getRank(), 10));
+            player.increaseScore(Integer.min(card.getRank().rankValue, 10));
         }
     }
 
