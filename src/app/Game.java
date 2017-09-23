@@ -41,6 +41,11 @@ public class Game {
             return;
         }
 
+        if (isTwentyOne(dealer)) {
+            winner = dealer;
+            return;
+        }
+
         // If the both the dealer and the player bust, the dealer wins
         if (isBust(dealer) && isBust(player)) {
             winner = dealer;
