@@ -9,7 +9,6 @@ class Main {
     public static void main(String[] args) {
         // TODO: game.run needs refactoring, everything needs testing
         // TODO: consider removing comparator usage
-        // TODO: use maven and improve readme
         // TODO: Run some style formatter
 
         // Read from commandline args
