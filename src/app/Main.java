@@ -11,7 +11,6 @@ class Main {
         // TODO: consider removing comparator usage
         // TODO: use maven and improve readme
         // TODO: move some tests from playertest to gametest (the ones that used the old addCard)
-        // TODO: exit after catching errors
         // TODO: Run some style formatter
 
         // Read from commandline args
@@ -74,6 +73,7 @@ class Main {
             buffer.close();
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(1);
         }
 
         return rawDeck;
