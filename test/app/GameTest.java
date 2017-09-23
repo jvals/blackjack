@@ -9,19 +9,17 @@ import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
-    private Deck deck;
-    private final String rawDeck =
-                    "CA, D5, H9, HQ, S8, D9, H5, CK, D10, CQ, C2, HK, H6, " +
-                    "SJ, H7, DQ, C5, C4, HJ, C8, S7, S6, SA, H8, D4, SQ, " +
-                    "DK, S10, C7, DJ, C9, H4, CJ, SK, D8, D3, S2, DA, S9, " +
-                    "C10, C3, S4, D7, S3, H3, HA, C6, D2, D6, H2, S5, H10";
     private Game game;
     private Player player;
     private Player dealer;
 
     @BeforeEach
     void setUp() {
-        deck = new Deck(rawDeck);
+        String rawDeck = "CA, D5, H9, HQ, S8, D9, H5, CK, D10, CQ, C2, HK, H6, " +
+                "SJ, H7, DQ, C5, C4, HJ, C8, S7, S6, SA, H8, D4, SQ, " +
+                "DK, S10, C7, DJ, C9, H4, CJ, SK, D8, D3, S2, DA, S9, " +
+                "C10, C3, S4, D7, S3, H3, HA, C6, D2, D6, H2, S5, H10";
+        Deck deck = new Deck(rawDeck);
         player = new Player("Player");
         dealer = new Player("Dealer");
         game = new Game(deck, player, dealer);
