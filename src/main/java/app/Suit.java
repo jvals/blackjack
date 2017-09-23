@@ -1,8 +1,10 @@
 package app;
 
 public enum Suit {
-    CLUBS, DIAMONDS, HEARTS, SPADES;
+  CLUBS,
+  DIAMONDS,
+  HEARTS,
+  SPADES;
 
-    public final char shortName = this.name().charAt(0);
-
+  public final char shortName = this.name().charAt(0);
 }
