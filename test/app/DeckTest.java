@@ -8,11 +8,11 @@ class DeckTest {
     @Test
     public void testNewDeck() {
         Deck deck = new Deck();
-        assertEquals(52, deck.getDeck().length);
+        assertEquals(52, deck.getDeck().size());
         for (int i = 0; i < 52; i++) {
-            assertTrue(deck.getDeck()[i].getRank().rankValue <= 13);
-            assertTrue(deck.getDeck()[i].getRank().rankValue >= 1);
-            assertTrue(deck.getDeck()[i].getSuit() != null);
+            assertTrue(deck.getDeck().get(i).getRank().rankValue <= 13);
+            assertTrue(deck.getDeck().get(i).getRank().rankValue >= 1);
+            assertTrue(deck.getDeck().get(i).getSuit() != null);
         }
     }
 
@@ -25,8 +25,8 @@ class DeckTest {
                 "C3, S4, S8, D7, S3, H3, HA, C6, D2, D6, H2, S5, H10";
         Deck deck = new Deck(rawDeck);
         assertNotNull(deck.getDeck());
-        assertEquals(52, deck.getDeck().length);
-        assertEquals(Suit.DIAMONDS, deck.getDeck()[0].getSuit());
-        assertEquals(Rank.NINE, deck.getDeck()[0].getRank());
+        assertEquals(52, deck.getDeck().size());
+        assertEquals(Suit.DIAMONDS, deck.getDeck().get(0).getSuit());
+        assertEquals(Rank.NINE, deck.getDeck().get(0).getRank());
     }
 }

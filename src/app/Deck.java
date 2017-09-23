@@ -1,12 +1,10 @@
 package app;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Deck {
-    private Card[] deck = new Card[52];
-    private int deckPointer = 0;
+    private ArrayList<Card> deck = new ArrayList<>();
 
     public Deck(String rawDeck) {
         parseRawDeck(rawDeck);
@@ -17,7 +15,7 @@ public class Deck {
         shuffleDeck();
     }
 
-    public Card[] getDeck() {
+    public ArrayList<Card> getDeck() {
         return deck;
     }
 
@@ -25,20 +23,16 @@ public class Deck {
      * Shuffle the card deck
      */
     private void shuffleDeck() {
-        ArrayList<Card> temporaryDeck = new ArrayList<>(Arrays.asList(deck));
-        Collections.shuffle(temporaryDeck);
-        deck = temporaryDeck.toArray(new Card[52]);
+        Collections.shuffle(this.deck);
     }
 
     /**
      * This method creates 52 unique cards and stores them in a Card array.
      */
     private void fillDeck() {
-        int i = 0;
         for (Suit suit: Suit.values()) {
             for (Rank rank: Rank.values()) {
-                deck[i] = new Card(suit, rank);
-                i++;
+                deck.add(new Card(suit, rank));
             }
         }
     }
@@ -51,7 +45,6 @@ public class Deck {
      */
     private void parseRawDeck(String rawDeck) {
         String[] deckArray = rawDeck.split(",");
-        int i = 0;
         for (String cardString: deckArray) {
             cardString = cardString.trim();
 
@@ -98,8 +91,7 @@ public class Deck {
             }
 
             // Create card
-            deck[i] = new Card(newSuit, newRank);
-            i++;
+            deck.add(new Card(newSuit, newRank));
         }
 
     }
@@ -108,10 +100,15 @@ public class Deck {
      * @return The next card from the top of the deck
      */
     public Card drawCard() {
-        if (deckPointer >= 51) {
+        if (deck.isEmpty()) {
             throw new RuntimeException("Tried to draw card from empty deck");
         }
 
-        return deck[deckPointer++];
+        // Get the card on top of the deck, and remove it
+        Card card = deck.get(0);
+        deck.remove(0);
+
+        return card;
+
     }
 }
