@@ -1,10 +1,10 @@
 package app;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 
 public class Deck {
-    private ArrayList<Card> deck = new ArrayList<>();
+    private LinkedList<Card> deck = new LinkedList<>();
 
     public Deck(String rawDeck) {
         parseRawDeck(rawDeck);
@@ -15,7 +15,7 @@ public class Deck {
         shuffleDeck();
     }
 
-    public ArrayList<Card> getDeck() {
+    public LinkedList<Card> getDeck() {
         return deck;
     }
 
@@ -105,10 +105,6 @@ public class Deck {
         }
 
         // Get the card on top of the deck, and remove it
-        Card card = deck.get(0);
-        deck.remove(0);
-
-        return card;
-
+        return deck.pollFirst();
     }
 }

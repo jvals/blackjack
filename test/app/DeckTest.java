@@ -26,7 +26,7 @@ class DeckTest {
         Deck deck = new Deck(rawDeck);
         assertNotNull(deck.getDeck());
         assertEquals(52, deck.getDeck().size());
-        assertEquals(Suit.DIAMONDS, deck.getDeck().get(0).getSuit());
-        assertEquals(Rank.NINE, deck.getDeck().get(0).getRank());
+        assertEquals(Suit.DIAMONDS, deck.getDeck().peekFirst().getSuit());
+        assertEquals(Rank.NINE, deck.getDeck().peekFirst().getRank());
     }
 }
