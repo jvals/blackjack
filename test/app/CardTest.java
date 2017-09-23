@@ -18,7 +18,7 @@ class CardTest {
 
         // Test that we can set and get a face
         Card nineOfHearts = new Card(Suit.HEARTS, 9);
-        assertEquals(9, nineOfHearts.getFace());
+        assertEquals(9, nineOfHearts.getRank());
     }
 
     @Test

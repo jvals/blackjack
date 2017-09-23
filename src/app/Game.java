@@ -1,7 +1,5 @@
 package app;
 
-import java.util.ArrayList;
-
 public class Game {
     private Deck deck;
     private Player winner = null;
@@ -97,12 +95,12 @@ public class Game {
         Card card = deck.drawCard();
         player.addCard(card);
 
-        if (card.getFace() == 1) {
+        if (card.getRank() == 1) {
             // Ace has the special value of 11 in our game
             player.increaseScore(11);
         } else {
             // Picture cards add 10 to score
-            player.increaseScore(Integer.min(card.getFace(), 10));
+            player.increaseScore(Integer.min(card.getRank(), 10));
         }
     }
 
