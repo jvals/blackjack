@@ -11,7 +11,6 @@ class Main {
         // TODO: consider removing comparator usage
         // TODO: use maven and improve readme
         // TODO: move some tests from playertest to gametest (the ones that used the old addCard)
-        // TODO: fix all warnings
         // TODO: exit after catching errors
         // TODO: Run some style formatter
 
