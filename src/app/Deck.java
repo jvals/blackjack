@@ -101,6 +101,9 @@ public class Deck {
 
     }
 
+    /**
+     * @return The next card from the top of the deck
+     */
     public Card drawCard() {
         if (deckPointer >= 51) {
             throw new RuntimeException("Tried to draw card from empty deck");
