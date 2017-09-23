@@ -10,7 +10,6 @@ class Main {
         // TODO: game.run needs refactoring, everything needs testing
         // TODO: consider removing comparator usage
         // TODO: use maven and improve readme
-        // TODO: move some tests from playertest to gametest (the ones that used the old addCard)
         // TODO: Run some style formatter
 
         // Read from commandline args
