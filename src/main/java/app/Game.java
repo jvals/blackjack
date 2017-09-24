@@ -21,6 +21,7 @@ class Game {
     return winner;
   }
 
+  /** Run the game */
   void run() {
     if (winner != null) {
       throw new RuntimeException("Game already has a winner");
@@ -89,6 +90,12 @@ class Game {
     winner = dealer;
   }
 
+  /**
+   * Draw a card from the deck and add it to the player hand. Increase the player score according to
+   * the rules of the game.
+   *
+   * @param player The player who draws a card
+   */
   void drawCard(Player player) {
     Card card = deck.drawCard();
     player.addCard(card);
@@ -102,14 +109,23 @@ class Game {
     }
   }
 
+  /**
+   * @param player The player to check
+   * @return true if a player score is equal to 21, false otherwise
+   */
   boolean isTwentyOne(Player player) {
     return (player.getScore() == 21);
   }
 
+  /**
+   * @param player The player to check
+   * @return true if a player score is greater than 21, false otherwise
+   */
   boolean isBust(Player player) {
     return player.getScore() > 21;
   }
 
+  /** Print the name of the winner, as well as the hands of both participants */
   void printResults() {
     // Print the name of the winner
     System.out.println(this.getWinner().getName());
