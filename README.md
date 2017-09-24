@@ -23,7 +23,7 @@ can be supplied to the program like this:
 `java -cp target/blackjack-1.0-SNAPSHOT.jar app.Main sampleInput.txt`
 
 ### Style
-This codebase follows the [google style guide](https://google.github.io/styleguide/javaguide.html).
+This codebase follows the [Google Style Guide](https://google.github.io/styleguide/javaguide.html).
 Any contributions to this project should adhere to these rules.
 
 `mvn validate` will fail if any violations has occurred.
