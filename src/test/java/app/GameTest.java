@@ -77,6 +77,7 @@ class GameTest {
 
   @Test
   void printResults() {
+    // Calling printResults before a game is finished should result in an exception
     assertThrows(RuntimeException.class, () -> game.printResults());
     game.run();
 
