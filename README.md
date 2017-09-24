@@ -33,7 +33,7 @@ To autofix any style related errors, run
 
 ## About
 This program simulates two players (Sam and the dealer)
-playing a game of blackjack. Both players draw two cards
+playing a game of Blackjack. Both players draw two cards
 at the start of the game. Both players know the value
 of their hand at all times. Sam will draw cards from the
 deck until his score is greater than or equal to 17.
