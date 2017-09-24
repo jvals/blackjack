@@ -26,7 +26,7 @@ can be supplied to the program like this:
 This codebase follows the [Google Style Guide](https://google.github.io/styleguide/javaguide.html).
 Any contributions to this project should adhere to these rules.
 
-`mvn validate` will fail if any violations has occurred.
+`mvn verify` will fail if any violations has occurred.
 To autofix any style related errors, run  
 `mvn com.coveo:fmt-maven-plugin:format`
 

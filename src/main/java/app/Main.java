@@ -7,9 +7,6 @@ import java.io.IOException;
 class Main {
 
   public static void main(String[] args) {
-    // TODO: game.run needs refactoring, everything needs testing
-    // TODO: consider removing comparator usage
-
     // Read from commandline args
     Deck deck = parseArgs(args);
 
